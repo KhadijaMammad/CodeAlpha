@@ -1,0 +1,368 @@
+:root {
+  --primary-color: #4285f4;
+  --secondary-color: #34a853;
+  --danger-color: #ea4335;
+  --dark-color: #202124;
+  --light-color: #f8f9fa;
+  --border-color: #dfe1e5;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--dark-color);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .calculator-container {
+  background-color: #1e1e1e;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .display {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+body.dark-mode .btn {
+  background-color: #333;
+  color: #ffffff;
+}
+
+body.dark-mode .operator {
+  background-color: #1976d2;
+}
+
+body.dark-mode .equal {
+  background-color: #388e3c;
+}
+
+body.dark-mode .sci {
+  background-color: #555;
+}
+
+body.dark-mode .history-panel,
+body.dark-mode .unit-converter {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+body.dark-mode #historyList li {
+  border-bottom-color: #444;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background-color: #333;
+  color: white;
+  border-color: #444;
+}
+
+.calculator-container {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  overflow: hidden;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: rgba(66, 133, 244, 0.1);
+}
+
+body.dark-mode .icon-btn {
+  color: #8ab4f8;
+}
+
+body.dark-mode .icon-btn:hover {
+  background-color: rgba(138, 180, 248, 0.1);
+}
+
+.display {
+  background-color: var(--light-color);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: right;
+  transition: all 0.3s ease;
+}
+
+#input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  color: #666;
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+#result {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--dark-color);
+  min-height: 36px;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode #result {
+  color: white;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 15px 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #e9ecef;
+  color: var(--dark-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: #dee2e6;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.operator {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.operator:hover {
+  background-color: #3367d6;
+}
+
+.equal {
+  background-color: var(--secondary-color);
+  color: white;
+  text-align: center;
+  grid-column: span 2;
+}
+
+.equal:hover {
+  background-color: #2d9141;
+}
+
+.scientific {
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.sci {
+  background-color: #adb5bd;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 0;
+}
+
+.sci:hover {
+  background-color: #868e96;
+}
+
+.history-panel {
+  grid-column: span 4;
+  margin-top: 10px;
+  padding: 15px;
+  background-color: var(--light-color);
+  border-radius: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+#historyList {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+#historyList li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+
+.converter-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #7950f2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.converter-btn:hover {
+  background-color: #6741d9;
+}
+
+.unit-converter {
+  top: 0;
+  margin-top: 5px;
+  right: -400px;
+  width: 368px;
+  background-color: white;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  transition: right 0.3s ease;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.unit-converter.show {
+  right: 0;
+}
+
+.converter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.converter-header h3 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.converter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.converter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.converter-row input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.converter-row select {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: white;
+}
+
+.equals {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bolder;
+}
+
+#convertedResult {
+  flex: 1;
+  padding: 10px;
+  background-color: var(--dark-color);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.convert-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.convert-btn:hover {
+  background-color: #3367d6;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive dizayn */
+@media (max-width: 500px) {
+  .calculator-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .unit-converter {
+    width: 85%;
+    right: -85%;
+  }
+}

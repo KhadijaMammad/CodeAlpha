@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="calculator-container">
+        <div class="header">
+            <button class="icon-btn" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="icon-btn" onclick="toggleScientific()">
+                <i class="fas fa-flask"></i>
+            </button>
+            <button class="icon-btn" onclick="toggleHistory()">
+                <i class="fas fa-history"></i>
+            </button>
+        </div>
+
+        <div class="display">
+            <input type="text" id="input" disabled>
+            <div id="result">0</div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn" onclick="clearDisplay()">C</button>
+            <button class="btn" onclick="deleteLast()"><i class="fas fa-backspace"></i></button>
+            <button class="btn" onclick="appendOperator('%')">%</button>
+            <button class="btn operator" onclick="appendOperator('/')"><i class="fas fa-divide"></i></button>
+
+            <button class="btn" onclick="appendNumber('7')">7</button>
+            <button class="btn" onclick="appendNumber('8')">8</button>
+            <button class="btn" onclick="appendNumber('9')">9</button>
+            <button class="btn operator" onclick="appendOperator('*')"><i class="fas fa-times"></i></button>
+
+            <button class="btn" onclick="appendNumber('4')">4</button>
+            <button class="btn" onclick="appendNumber('5')">5</button>
+            <button class="btn" onclick="appendNumber('6')">6</button>
+            <button class="btn operator" onclick="appendOperator('-')"><i class="fas fa-minus"></i></button>
+
+            <button class="btn" onclick="appendNumber('1')">1</button>
+            <button class="btn" onclick="appendNumber('2')">2</button>
+            <button class="btn" onclick="appendNumber('3')">3</button>
+            <button class="btn operator" onclick="appendOperator('+')"><i class="fas fa-plus"></i></button>
+
+            <button class="btn" onclick="appendNumber('0')">0</button>
+            <button class="btn" onclick="appendDot()">.</button>
+            <button class="btn equal" onclick="calculate()"><i class="fas fa-equals"></i></button>
+
+
+            <div class="scientific hidden">
+                <button class="btn sci" onclick="square()">x²</button>
+                <button class="btn sci" onclick="cube()">x³</button>
+                <button class="btn sci" onclick="sqrt()"><i class="fas fa-square-root-alt"></i></button>
+                <button class="btn sci" onclick="cbrt()">∛x</button>
+                <button class="btn sci" onclick="power()">x^y</button>
+                <button class="btn sci" onclick="factorial()">x!</button>
+                <button class="btn sci" onclick="sin()">sin</button>
+                <button class="btn sci" onclick="cos()">cos</button>
+                <button class="btn sci" onclick="tan()">tan</button>
+                <button class="btn sci" onclick="log()">log</button>
+                <button class="btn sci" onclick="ln()">ln</button>
+                <button class="btn sci" onclick="pi()">π</button>
+                <button class="btn sci" onclick="e()">e</button>
+            </div>
+
+
+            <div class="history-panel hidden" id="historyPanel">
+                <h3><i class="fas fa-history"></i>History</h3>
+                <ul id="historyList"></ul>
+                <button class="btn" style="padding: 10px 20px;" onclick="clearHistory()">Clear</button>
+            </div>
+        </div>
+
+
+        <button class="converter-btn" onclick="toggleConverter()">
+            <i class="fas fa-exchange-alt"></i>Converter
+        </button>
+
+        <div class="unit-converter hidden" id="unitConverter">
+            <div class="converter-header">
+                <h3><i class="fas fa-ruler"></i>Length Converter</h3>
+                <button class="close-btn" onclick="toggleConverter()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="converter-body">
+                <div class="converter-row">
+                    <input type="number" id="unitInput" placeholder="Value">
+                    <select id="fromUnit">
+                        <option value="m">Metr(m)</option>
+                        <option value="cm">Santimetr(cm)</option>
+                        <option value="km">Kilometr(km)</option>
+                        <option value="inch">Inch</option>
+                        <option value="ft">Fut(ft)</option>
+                    </select>
+                    <span class="equals">=</span>
+                    <div id="convertedResult">0</div>
+                    <select id="toUnit">
+                        <option value="cm">Santimetr(cm)</option>
+                        <option value="m">Metr(m)</option>
+                        <option value="km">Kilometr(km)</option>
+                        <option value="inch">Inch</option>
+                        <option value="ft">Fut(ft)</option>
+                    </select>
+                </div>
+                <button class="btn convert-btn" onclick="convertUnit()">Convert</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
