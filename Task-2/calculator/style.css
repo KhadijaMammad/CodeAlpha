@@ -329,7 +329,8 @@ body.dark-mode #result {
 #convertedResult {
   flex: 1;
   padding: 10px;
-  background-color: var(--dark-color);
+  color: gray;
+  background-color: var(--light-color);
   border-radius: 5px;
   text-align: center;
 }
